@@ -27,6 +27,7 @@
             font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
                          system-ui, "Segoe UI", "Malgun Gothic", sans-serif;
             line-height: 1.6;
+            word-break: keep-all;
             -webkit-font-smoothing: antialiased;
         }
         .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
@@ -109,6 +110,17 @@
         .about-card .emoji { font-size: 1.5rem; }
         .about-card h3 { font-size: 1rem; margin: 10px 0 6px; }
         .about-card p { font-size: 0.9rem; color: var(--muted); }
+        .edu-list {
+            list-style: none; display: flex; flex-direction: column; gap: 7px;
+        }
+        .edu-list li {
+            font-size: 0.9rem; color: var(--muted);
+            position: relative; padding-left: 15px;
+        }
+        .edu-list li::before {
+            content: ""; position: absolute; left: 0; top: 0.5em;
+            width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
+        }
 
         /* Skills */
         .skill-group { margin-bottom: 20px; }
@@ -219,8 +231,12 @@
             <div class="about-grid">
                 <div class="about-card">
                     <div class="emoji">🎓</div>
-                    <h3>조선대학교 컴퓨터공학과</h3>
-                    <p>NHN Academy Java 백엔드 과정 8기, 삼성 청년 SW AI 아카데미(SSAFY) 14기를 수료했습니다.</p>
+                    <h3>Education</h3>
+                    <ul class="edu-list">
+                        <li>조선대학교 컴퓨터공학과</li>
+                        <li>NHN Academy Java 백엔드 과정 8기 수료</li>
+                        <li>삼성 청년 SW AI 아카데미(SSAFY) 14기 수료</li>
+                    </ul>
                 </div>
                 <div class="about-card">
                     <div class="emoji">🧩</div>
