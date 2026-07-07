@@ -22,9 +22,6 @@
 - 🖥️ NHN Academy Java 백엔드 과정 8기 수료
 - 🧑‍💻 삼성 청년 SW AI 아카데미(SSAFY) 14기 수료
 - 🌱 **Java / Spring** 기반 백엔드 개발을 공부하고 있습니다
-- 🧩 백준·SWEA·프로그래머스에서 **꾸준히 알고리즘 문제를 풀고 있습니다** (BaekjoonHub로 자동 기록 중)
-- 📚 공부한 내용은 [블로그](https://javember.tistory.com/)에 기록합니다
-- 📫 연락은 **ch6854@naver.com** 으로 주세요
 
 <br/>
 
