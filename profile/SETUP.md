@@ -26,11 +26,11 @@ GitHub에서 **유저명과 똑같은 이름**의 새 레포를 만듭니다.
 
 ## 통계 카드가 깨질 때
 
-`github-readme-stats.vercel.app` 은 전 세계가 같이 쓰는 **공용 서버**라서, 트래픽이 몰리면
-GitHub API 요청 제한에 걸려 카드가 일시적으로 깨지거나 "Something went wrong"이 뜹니다.
+통계 카드는 공용 서버 대신 **개인 Vercel 배포**(`sjh1108-readme-stats.vercel.app`)를 사용 중이라
+공용 서버의 요청 제한/서비스 정지 영향을 받지 않습니다. 그래도 깨진다면:
 
-- **대부분은 기다리면 복구됩니다.** GitHub가 이미지를 캐시(camo)하므로 새로고침 몇 번 후 정상화되는 경우가 많음
-- **확실한 해결책은 내 Vercel로 직접 배포**: [공식 가이드](https://github.com/anuraghazra/github-readme-stats#deploy-on-your-own) 따라 Vercel 무료 배포 후, README의 `github-readme-stats.vercel.app` 부분을 내 배포 주소로 교체 (10분 소요, private 커밋 카운트도 가능해짐)
+- Vercel 대시보드에서 `github-readme-stats` 프로젝트가 Paused 상태가 아닌지 확인 (Paused면 Resume)
+- GitHub PAT 만료 시 카드에 에러가 뜸 → 새 토큰 발급 후 Vercel 환경변수 `PAT_1` 교체하고 Redeploy
 - 백준 티어 배지가 깨지면: `boj=` 뒤의 아이디(`thdwngjs1108`)가 실제 백준 아이디와 다른 경우이니 수정
 - 방문자 카운터는 서비스가 종료된 hits.seeyoufarm 대신 [komarev](https://github.com/antonkomarev/github-profile-views-counter)를 사용 중
 
