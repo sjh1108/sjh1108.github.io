@@ -48,10 +48,9 @@
 
 <div align="center">
 
-<!-- 통계 카드 (github-readme-stats) : theme= 을 tokyonight, radical, gruvbox 등으로 교체 가능 -->
-<!-- 카드가 간헐적으로 깨지면 공용 서버 요청 제한(rate limit)입니다. SETUP.md의 '통계 카드가 깨질 때' 참고 -->
-<img src="https://github-readme-stats.vercel.app/api?username=sjh1108&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true" height="165" alt="stats"/>
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sjh1108&layout=compact&theme=tokyonight&hide_border=true&langs_count=6" height="165" alt="top langs"/>
+<!-- 통계 카드 (github-readme-stats, 개인 Vercel 배포) : theme= 을 tokyonight, radical, gruvbox 등으로 교체 가능 -->
+<img src="https://sjh1108-readme-stats.vercel.app/api?username=sjh1108&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true" height="165" alt="stats"/>
+<img src="https://sjh1108-readme-stats.vercel.app/api/top-langs/?username=sjh1108&layout=compact&theme=tokyonight&hide_border=true&langs_count=6" height="165" alt="top langs"/>
 
 <!-- 연속 커밋 스트릭 (streak-stats) -->
 <img src="https://streak-stats.demolab.com?user=sjh1108&theme=tokyonight&hide_border=true&date_format=%5BY.%5Dn.j" width="60%" alt="streak"/>
@@ -64,8 +63,8 @@
 
 <div align="center">
 
-<!-- 백준 티어 배지 (mazassumnida) : boj= 뒤를 본인 백준 아이디로! (현재 sjh1108 로 가정) -->
-[![Solved.ac Profile](https://mazassumnida.wtf/api/v2/generate_badge?boj=sjh1108)](https://solved.ac/profile/sjh1108)
+<!-- 백준 티어 배지 (mazassumnida) : boj= 뒤는 백준 아이디 -->
+[![Solved.ac Profile](https://mazassumnida.wtf/api/v2/generate_badge?boj=thdwngjs1108)](https://solved.ac/profile/thdwngjs1108)
 
 </div>
 
