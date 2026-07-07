@@ -86,18 +86,5 @@
 
 <br/>
 
-## 📫 Contact
-
-<div align="center">
-
-<a href="mailto:ch6854@naver.com"><img src="https://img.shields.io/badge/ch6854@naver.com-03C75A?style=for-the-badge&logo=naver&logoColor=white"/></a>
-<a href="https://javember.tistory.com/"><img src="https://img.shields.io/badge/Tech%20Blog-000000?style=for-the-badge&logo=tistory&logoColor=white"/></a>
-
-<!-- 방문자 카운터 (komarev) : sjh1108/sjh1108 레포에 적용한 뒤부터 카운트됩니다 -->
-<br/><br/>
-<img src="https://komarev.com/ghpvc/?username=sjh1108&style=for-the-badge&color=6db33f&label=PROFILE+VIEWS" alt="visitors"/>
-
-</div>
-
 <!-- 푸터 배너 -->
 <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12&height=120&section=footer" width="100%" alt="footer"/>
