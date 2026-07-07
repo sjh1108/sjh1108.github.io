@@ -1,22 +1,28 @@
-# 프로필 README 적용 방법
+# 프로필 README 관리 방법
 
-`profile/README.md`를 GitHub 프로필(github.com/sjh1108)에 띄우는 3단계:
+`profile/README.md`가 **원본**입니다. 이 파일이 `main`에 푸시되면 GitHub Actions
+(`.github/workflows/sync-profile.yml`)가 자동으로 `sjh1108/sjh1108` 레포의 `README.md`에
+복사해서 프로필에 반영합니다.
 
-## 1. 특수 레포 만들기
+## 자동 동기화 설정 (최초 1회)
 
-GitHub에서 **유저명과 똑같은 이름**의 새 레포를 만듭니다.
+워크플로가 프로필 레포에 푸시하려면 토큰이 필요합니다:
 
-- 레포 이름: `sjh1108` (→ `sjh1108/sjh1108`)
-- **Public** 이어야 함
-- "Add a README file" 체크
+1. GitHub → Settings → Developer settings → **Fine-grained tokens** → Generate new token
+   - Repository access: **Only select repositories** → `sjh1108/sjh1108` 선택
+   - Permissions: **Contents → Read and write**
+   (기존 classic PAT(repo 권한)을 재사용해도 동작은 하지만, 범위를 좁힌 토큰이 안전)
+2. 이 레포(sjh1108.github.io) → Settings → **Secrets and variables → Actions** →
+   **New repository secret**
+   - Name: `PROFILE_REPO_TOKEN`
+   - Secret: 위에서 만든 토큰
+3. 이후 `profile/README.md`를 수정해 main에 머지하면 자동 반영.
+   Actions 탭에서 "Sync profile README" 워크플로를 **수동 실행(Run workflow)** 할 수도 있습니다.
 
-이름이 유저명과 일치하면 GitHub가 "✨ special repository" 라고 알려줍니다.
+> 주의: `sjh1108/sjh1108` 레포의 README를 직접 수정하면 다음 동기화 때 덮어써집니다.
+> 수정은 항상 이 레포의 `profile/README.md`에서 하세요.
 
-## 2. README 붙여넣기
-
-`profile/README.md`의 내용 전체를 새 레포의 `README.md`에 복사해서 커밋합니다.
-
-## 3. 커스터마이징 체크리스트
+## 커스터마이징 체크리스트
 
 - [x] **백준 아이디**: 티어 배지에 `boj=thdwngjs1108` 적용 완료
 - [ ] 헤더/타이핑 문구를 원하는 대로 수정

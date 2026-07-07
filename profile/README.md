@@ -70,17 +70,6 @@
 
 <br/>
 
-## 🏆 Trophies
-
-<div align="center">
-
-<!-- 트로피 (github-profile-trophy) : 필요 없으면 이 섹션 삭제 -->
-<img src="https://github-profile-trophy.vercel.app/?username=sjh1108&theme=tokyonight&no-frame=true&row=1&column=7&margin-w=8" width="100%" alt="trophies"/>
-
-</div>
-
-<br/>
-
 ## 📫 Contact
 
 <div align="center">

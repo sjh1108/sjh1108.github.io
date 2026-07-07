@@ -1,0 +1,33 @@
+name: Sync profile README
+
+# profile/README.md 가 main 에 푸시되면 sjh1108/sjh1108 레포의 README.md 로 자동 반영
+on:
+  push:
+    branches: [main]
+    paths:
+      - "profile/README.md"
+  workflow_dispatch: # Actions 탭에서 수동 실행도 가능
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 이 레포 체크아웃
+        uses: actions/checkout@v4
+
+      - name: 프로필 레포 체크아웃
+        uses: actions/checkout@v4
+        with:
+          repository: sjh1108/sjh1108
+          token: ${{ secrets.PROFILE_REPO_TOKEN }}
+          path: profile-repo
+
+      - name: README 복사 및 푸시
+        run: |
+          cp profile/README.md profile-repo/README.md
+          cd profile-repo
+          git config user.name "sjh1108"
+          git config user.email "ch6854@naver.com"
+          git add README.md
+          git diff --cached --quiet || git commit -m "sync: profile README 업데이트 (sjh1108.github.io)"
+          git push
