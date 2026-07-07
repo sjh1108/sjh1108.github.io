@@ -50,5 +50,3 @@
 | GitHub 통계/언어 카드 | [github-readme-stats](https://github.com/anuraghazra/github-readme-stats) |
 | 커밋 스트릭 | [streak-stats](https://github.com/DenverCoder1/github-readme-streak-stats) |
 | 백준 티어 배지 | [mazassumnida](https://github.com/mazassumnida/mazassumnida) |
-| 트로피 | [github-profile-trophy](https://github.com/ryo-ma/github-profile-trophy) |
-| 방문자 카운터 | [komarev](https://github.com/antonkomarev/github-profile-views-counter) |
