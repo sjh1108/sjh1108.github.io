@@ -64,8 +64,8 @@
 
 <div align="center">
 
-<!-- 백준 티어 배지 (mazassumnida) : boj= 뒤를 본인 백준 아이디로! (현재 sjh1108 로 가정) -->
-[![Solved.ac Profile](https://mazassumnida.wtf/api/v2/generate_badge?boj=sjh1108)](https://solved.ac/profile/sjh1108)
+<!-- 백준 티어 배지 (mazassumnida) : boj= 뒤는 백준 아이디 -->
+[![Solved.ac Profile](https://mazassumnida.wtf/api/v2/generate_badge?boj=thdwngjs1108)](https://solved.ac/profile/thdwngjs1108)
 
 </div>
 
