@@ -1,159 +1,341 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>제목</title>
-    <!-- fontawesome -->
-    <script src="https://kit.fontawesome.com/ea432b1c9b.js" crossorigin="anonymous"></script>
-    <!-- css -->
-    <!-- 주소는 무적권 상대경로로 작성해야 함 -->
-    <link rel="stylesheet" type="text/css" href="css/common.css">
-    <link rel="stylesheet" type="text/css" href="css/design.css">
-    <link rel="stylesheet" type="text/css" href="css/animation.css">
+    <meta name="description" content="백엔드 개발자 송주헌의 개인 페이지">
+    <title>송주헌 · Backend Developer</title>
+    <link rel="stylesheet" as="style" crossorigin
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <style>
+        :root {
+            --bg: #0b0f14;
+            --bg-soft: #11161d;
+            --card: #151c25;
+            --border: #232d3a;
+            --text: #e8edf3;
+            --muted: #93a1b3;
+            --accent: #6db33f;
+            --accent2: #38bdf8;
+            --radius: 14px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+                         system-ui, "Segoe UI", "Malgun Gothic", sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+        /* 헤더 */
+        header {
+            position: sticky; top: 0; z-index: 10;
+            background: rgba(11, 15, 20, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav {
+            display: flex; align-items: center; justify-content: space-between;
+            height: 60px;
+        }
+        .logo { font-weight: 800; font-size: 1.05rem; letter-spacing: -0.01em; }
+        .logo span { color: var(--accent); }
+        nav a {
+            color: var(--muted); text-decoration: none; font-size: 0.92rem;
+            margin-left: 22px; transition: color 0.2s;
+        }
+        nav a:hover { color: var(--text); }
+
+        /* 히어로 */
+        .hero { padding: 96px 0 72px; }
+        .badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 0.82rem; font-weight: 600; color: var(--accent);
+            border: 1px solid rgba(109, 179, 63, 0.35);
+            background: rgba(109, 179, 63, 0.08);
+            padding: 6px 14px; border-radius: 999px; margin-bottom: 22px;
+        }
+        .badge::before {
+            content: ""; width: 7px; height: 7px; border-radius: 50%;
+            background: var(--accent);
+        }
+        h1 {
+            font-size: clamp(2rem, 5.5vw, 3.1rem);
+            font-weight: 800; letter-spacing: -0.03em; line-height: 1.25;
+        }
+        h1 .grad {
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text; background-clip: text; color: transparent;
+        }
+        .hero p {
+            margin-top: 18px; color: var(--muted);
+            font-size: 1.08rem; max-width: 560px;
+        }
+        .cta { margin-top: 34px; display: flex; gap: 12px; flex-wrap: wrap; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            text-decoration: none; font-weight: 600; font-size: 0.95rem;
+            padding: 12px 22px; border-radius: 10px; transition: all 0.2s;
+        }
+        .btn svg { width: 18px; height: 18px; fill: currentColor; }
+        .btn-primary { background: var(--accent); color: #0b1409; }
+        .btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+        .btn-ghost {
+            color: var(--text); border: 1px solid var(--border); background: var(--bg-soft);
+        }
+        .btn-ghost:hover { border-color: var(--muted); transform: translateY(-1px); }
+
+        /* 공통 섹션 */
+        section { padding: 64px 0; }
+        .section-title {
+            font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em;
+            margin-bottom: 28px; display: flex; align-items: center; gap: 10px;
+        }
+        .section-title::before {
+            content: ""; width: 5px; height: 22px; border-radius: 3px;
+            background: linear-gradient(180deg, var(--accent), var(--accent2));
+        }
+
+        /* About */
+        .about-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+        .about-card {
+            background: var(--card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 22px;
+        }
+        .about-card .emoji { font-size: 1.5rem; }
+        .about-card h3 { font-size: 1rem; margin: 10px 0 6px; }
+        .about-card p { font-size: 0.9rem; color: var(--muted); }
+
+        /* Skills */
+        .skill-group { margin-bottom: 20px; }
+        .skill-group h3 {
+            font-size: 0.82rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.08em; color: var(--muted); margin-bottom: 10px;
+        }
+        .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+        .chip {
+            background: var(--card); border: 1px solid var(--border);
+            border-radius: 8px; padding: 7px 14px;
+            font-size: 0.9rem; font-weight: 500;
+        }
+        .chip.main { border-color: rgba(109, 179, 63, 0.5); color: #b5e394; }
+
+        /* Projects */
+        .proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+        .proj {
+            background: var(--card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 24px;
+            text-decoration: none; color: var(--text);
+            display: flex; flex-direction: column; gap: 10px;
+            transition: all 0.2s;
+        }
+        .proj:hover { border-color: var(--accent); transform: translateY(-3px); }
+        .proj-top { display: flex; justify-content: space-between; align-items: center; }
+        .proj-top svg { width: 20px; height: 20px; fill: var(--muted); }
+        .proj h3 { font-size: 1.05rem; }
+        .proj p { font-size: 0.88rem; color: var(--muted); flex: 1; }
+        .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+        .tag {
+            font-size: 0.75rem; font-weight: 600; color: var(--accent2);
+            background: rgba(56, 189, 248, 0.1); border-radius: 6px; padding: 3px 9px;
+        }
+
+        /* Contact */
+        .contact-box {
+            background: linear-gradient(135deg, rgba(109,179,63,0.10), rgba(56,189,248,0.08));
+            border: 1px solid var(--border); border-radius: var(--radius);
+            padding: 44px 32px; text-align: center;
+        }
+        .contact-box h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 10px; }
+        .contact-box p { color: var(--muted); margin-bottom: 26px; }
+        .links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+        .icon-btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            color: var(--text); text-decoration: none; font-size: 0.92rem; font-weight: 600;
+            background: var(--bg-soft); border: 1px solid var(--border);
+            padding: 11px 18px; border-radius: 10px; transition: all 0.2s;
+        }
+        .icon-btn:hover { border-color: var(--accent); transform: translateY(-1px); }
+        .icon-btn svg { width: 17px; height: 17px; fill: currentColor; }
+
+        footer {
+            border-top: 1px solid var(--border); padding: 28px 0;
+            text-align: center; color: var(--muted); font-size: 0.85rem;
+        }
+
+        /* 스크롤 등장 애니메이션 (JS 활성화 시에만 적용) */
+        html.js .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s, transform 0.6s; }
+        html.js .reveal.on { opacity: 1; transform: none; }
+
+        @media (max-width: 720px) {
+            .about-grid, .proj-grid { grid-template-columns: 1fr; }
+            nav a { margin-left: 14px; font-size: 0.85rem; }
+            .hero { padding: 64px 0 48px; }
+        }
+    </style>
 </head>
 <body>
-    <div class="wrap">
-        <!-- 명함 -->
-        <div class="common_box card_box">
-            <div class="card_left">
-                <div class="card_job">
-                    <!-- 이름 -->
-                    <span class="name_ko">송 주 헌</span>
-                    <!-- 영문이름 -->
-                    <span class="name_eng">JuHeon Song</span>
-                    <!-- 직업 -->
-                    <span class="job">집청소하면서 배벅벅 긁는 사람</span>
-                </div>
-                <div class="item_list">
-                    <div class="item_type">
-                        <span>Mail.</span>
-                        <span>Site.</span>
-                    </div>
-                    <div>
-                        <!-- 메일 -->
-                        <span>ch6854@naver.com</span>
-                        <!-- 웹사이트 -->
-                        <span><a href=""> sjh1108.github.io</a></span>
-                    </div>
-                </div>
-
-            </div>
-            <div class="card_right">
-                <div class="card_img"></div>
-            </div>
-            <div class="design_bar"></div>
+    <header>
+        <div class="container nav">
+            <div class="logo">sjh1108<span>.dev</span></div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
         </div>
-        <!-- SNS -->
-        <div class="common_box sns_box">
-            <div class="middle">
-                <a class="sns_btn" href="https://github.com/sjh1108" target="_blank"><i class="fab fa-github"></i></a>
-                <a class="sns_btn" href="https://www.facebook.com/profile.php?id=100005822530278" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a class="sns_btn" href="" target="_blank"><i class="fab fa-google"></i></a>
-                <a class="sns_btn" href="https://www.instagram.com/thdwngjs_00/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a class="sns_btn" href="" target="_blank"><i class="fab fa-youtube"></i></a>
-                <!-- 이력서 다운로드 -->
-                <a class="sns_btn" href="download\resume.pdf" download="resume.pdf"><i class="fas fa-file-download"></i></a>
+    </header>
+
+    <main class="container">
+        <!-- 히어로 -->
+        <section class="hero">
+            <div class="badge">Backend Developer</div>
+            <h1>안녕하세요,<br>백엔드 개발자 <span class="grad">송주헌</span>입니다.</h1>
+            <p>Java / Spring으로 서버를 만들고, 매일 알고리즘 문제를 풀며 기록을 쌓아가고 있습니다.</p>
+            <div class="cta">
+                <a class="btn btn-primary" href="https://github.com/sjh1108" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+                    GitHub
+                </a>
+                <a class="btn btn-ghost" href="https://javember.tistory.com/" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-9 15H7v-7h3v7zm5 0h-3V8h3v10zm5 0h-3v-4h3v4z"/></svg>
+                    블로그
+                </a>
+                <a class="btn btn-ghost" href="download/resume.pdf" download="resume.pdf">
+                    <svg viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"/></svg>
+                    이력서
+                </a>
             </div>
-        </div>
-        
-        
-        <div class="common_box info_box">
-            <!-- Skill -->
-            <div class="sub_box skill_box">
-                <div class="sub_title">Skills</div>
-                <div class="bar_wrap">
-                    <div class="skill_title"><strong>Web</strong></div>
-                    <div><div class="bar_border"><div class="bar_fill" style="width: 10%">10%</div></div></div>
-                </div>
+        </section>
 
-                <div class="bar_wrap">
-                    <div class="skill_title"><strong>Algorithm</strong></div>
-                    <div><div class="bar_border"><div class="bar_fill" style="width: 90%">90%</div></div></div>
+        <!-- About -->
+        <section id="about" class="reveal">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="emoji">🎓</div>
+                    <h3>조선대학교 컴퓨터공학과</h3>
+                    <p>CS 기초를 다지며 백엔드 개발자의 길을 걷고 있습니다.</p>
                 </div>
-
-                <div class="bar_wrap">
-                    <div class="skill_title"><strong>FoodFight</strong></div>
-                    <div><div class="bar_border"><div class="bar_fill" style="width: 30%">30%</div></div></div>
+                <div class="about-card">
+                    <div class="emoji">🧩</div>
+                    <h3>알고리즘 1,500+ 커밋</h3>
+                    <p>백준·SWEA·프로그래머스 풀이를 BaekjoonHub로 매일 기록합니다.</p>
                 </div>
-
-                <div class="bar_wrap">
-                    <div class="skill_title"><strong>Database</strong></div>
-                    <div><div class="bar_border"><div class="bar_fill" style="width: 20%">20%</div></div></div>
-                </div>
-
-                <div class="bar_wrap">
-                    <div class="skill_title"><strong>AI</strong></div>
-                    <div><div class="bar_border"><div class="bar_fill" style="width: 30%">30%</div></div></div>
-                </div>
-            </div>
-
-            <!-- License -->
-            <div class="sub_box">
-                <div class="sub_title">License</div>
-                <div class="item_list">
-                    <div class="item_type item_sign">
-                        <span>+ </span>
-                        <span>+ </span>
-                        <span>+ </span>
-                    </div>
-                    <div>
-                        <!--자격증-->
-                        <span>"정처기 필기"</span>
-                        <span></span>
-                        <span></span>
-                    </div>
+                <div class="about-card">
+                    <div class="emoji">📝</div>
+                    <h3>기록하는 습관</h3>
+                    <p>공부한 내용과 트러블슈팅을 블로그에 정리합니다.</p>
                 </div>
             </div>
+        </section>
 
-            <!-- Work -->
-            <div class="sub_box">
-                <div class="sub_title">Work</div>
-                <div class="item_list">
-                    <div class="item_type item_sign">
-                        <span>+ </span>
-                        <span>+ </span>
-                        <span>+ </span>
-                    </div>
-                    <div>
-                        <span>"선관위 사무보조도르"</span>
-                        <span>"육군병장만기전역"</span>
-                        <span>일당 30만원의 사나이</span>
-                    </div>
+        <!-- Skills -->
+        <section id="skills" class="reveal">
+            <h2 class="section-title">Skills</h2>
+            <div class="skill-group">
+                <h3>Language</h3>
+                <div class="chips">
+                    <span class="chip main">Java</span>
+                    <span class="chip">Python</span>
+                    <span class="chip">JavaScript</span>
                 </div>
             </div>
-
-            <!-- Education -->
-            <div class="sub_box">
-                <div class="sub_title">Education</div>
-                <div class="item_list">
-                    <div class="item_type item_sign">
-                        <span>+ </span>
-                        <span>+ </span>
-                    </div>
-                    <div>
-                        <span>조선대학교 컴퓨터공학과 수료</span>
-                        <span>귤까기학과 수석졸업</span>
-                    </div>
+            <div class="skill-group">
+                <h3>Backend</h3>
+                <div class="chips">
+                    <span class="chip main">Spring Boot</span>
+                    <span class="chip main">Spring</span>
+                    <span class="chip">JPA</span>
                 </div>
             </div>
-
-            <!-- Award -->
-            <div class="sub_box">
-                <div class="sub_title">Awards</div>
-                <div class="item_list">
-                    <div class="item_type item_sign">
-                        <span>+ </span>
-                        <span>+ </span>
-                    </div>
-                    <div>
-                        <span>모범상</span>
-                        <span>착한어린이상</span>
-                    </div>
+            <div class="skill-group">
+                <h3>Database</h3>
+                <div class="chips">
+                    <span class="chip">MySQL</span>
                 </div>
             </div>
-        </div>
-    </div>
+            <div class="skill-group">
+                <h3>Tools</h3>
+                <div class="chips">
+                    <span class="chip">Git</span>
+                    <span class="chip">GitHub</span>
+                    <span class="chip">IntelliJ IDEA</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="reveal">
+            <h2 class="section-title">Projects</h2>
+            <div class="proj-grid">
+                <a class="proj" href="https://github.com/sjh1108/5rora-shop-api" target="_blank" rel="noopener">
+                    <div class="proj-top">
+                        <h3>5rora-shop-api</h3>
+                        <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zM19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7z"/></svg>
+                    </div>
+                    <p>도서 이커머스 플랫폼 백엔드 API. 상품·주문·회원 도메인을 설계하고 구현했습니다.</p>
+                    <div class="tags"><span class="tag">Java</span><span class="tag">Spring Boot</span></div>
+                </a>
+                <a class="proj" href="https://github.com/sjh1108/ssagorithm" target="_blank" rel="noopener">
+                    <div class="proj-top">
+                        <h3>ssagorithm</h3>
+                        <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zM19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7z"/></svg>
+                    </div>
+                    <p>Java 알고리즘 스터디 저장소. 문제 풀이와 접근 방식을 함께 정리합니다.</p>
+                    <div class="tags"><span class="tag">Java</span><span class="tag">Algorithm</span></div>
+                </a>
+                <a class="proj" href="https://github.com/sjh1108/hundredJr" target="_blank" rel="noopener">
+                    <div class="proj-top">
+                        <h3>hundredJr</h3>
+                        <svg viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zM19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7z"/></svg>
+                    </div>
+                    <p>백준·SWEA 문제 풀이 자동 기록 저장소. 1,500회 이상의 커밋이 쌓여 있습니다.</p>
+                    <div class="tags"><span class="tag">BaekjoonHub</span><span class="tag">PS</span></div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="reveal">
+            <div class="contact-box">
+                <h2>함께 이야기해요 👋</h2>
+                <p>협업 제안, 스터디, 커피챗 모두 환영합니다.</p>
+                <div class="links">
+                    <a class="icon-btn" href="mailto:ch6854@naver.com">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        ch6854@naver.com
+                    </a>
+                    <a class="icon-btn" href="https://github.com/sjh1108" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+                        GitHub
+                    </a>
+                    <a class="icon-btn" href="https://javember.tistory.com/" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-9 15H7v-7h3v7zm5 0h-3V8h3v10zm5 0h-3v-4h3v4z"/></svg>
+                        Blog
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        © 2026 JuHeon Song · Built with GitHub Pages
+    </footer>
+
+    <script>
+        // 스크롤 시 섹션 등장 애니메이션
+        document.documentElement.classList.add('js');
+        const io = new IntersectionObserver(
+            entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('on')),
+            { threshold: 0.12 }
+        );
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    </script>
 </body>
 </html>
