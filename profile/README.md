@@ -19,6 +19,8 @@
 ## 🙋‍♂️ About Me
 
 - 🎓 조선대학교 컴퓨터공학과
+- 🖥️ NHN Academy 백엔드 과정 8기 수료
+- 🧑‍💻 삼성 청년 SW AI 아카데미(SSAFY) 14기 수료
 - 🌱 **Java / Spring** 기반 백엔드 개발을 공부하고 있습니다
 - 🧩 백준·SWEA·프로그래머스에서 **꾸준히 알고리즘 문제를 풀고 있습니다** (BaekjoonHub로 자동 기록 중)
 - 📚 공부한 내용은 [블로그](https://javember.tistory.com/)에 기록합니다
@@ -70,14 +72,17 @@
 
 <br/>
 
-## 🏆 Trophies
+## 🏆 Awards
 
-<div align="center">
+<!-- 증빙 가능한 수상 내역만 기재 -->
 
-<!-- 트로피 (github-profile-trophy) : 필요 없으면 이 섹션 삭제 -->
-<img src="https://github-profile-trophy.vercel.app/?username=sjh1108&theme=tokyonight&no-frame=true&row=1&column=7&margin-w=8" width="100%" alt="trophies"/>
-
-</div>
+| 시기 | 대회 | 수상 | 주최 |
+|---|---|---|---|
+| 2026.06 | SSAFY 자율(3차·최종) 프로젝트 | 🥈 우수상 (2등) | 삼성 청년 SW AI 아카데미 |
+| 2026.04 | SSAFY 특화(2차) 프로젝트 | 🥉 우수상 (3등) | 삼성 청년 SW AI 아카데미 |
+| 2026.02 | SSAFY 공통(1차) 프로젝트 | 🥉 우수상 (3등) | 삼성 청년 SW AI 아카데미 |
+| 2024.11 | 조선대학교 프로그래밍 경진대회 <sub>(ICPC 서울 지역 예선 연계)</sub> | 🥈 은상 | 조선대학교 SW중심대학사업단 |
+| 2024.05 | GIST 알고리즘 마스터즈 | 🥉 동상 | GIST 알고리즘 마스터즈 |
 
 <br/>
 
